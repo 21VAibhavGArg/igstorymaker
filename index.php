@@ -10,7 +10,7 @@
 	$ts = time();
 	//resources
 	$mr = $cwd.'\Montserrat.ttf';
-	$canvas = imagecreatefrompng('BG.png');	
+	$canvas = imagecreatefrompng('BG2.png');	
 	$uppr_q = imagecreatefrompng($cwd.'\upper_quote.png');
 	$lwr_q = imagecreatefrompng($cwd.'\lower_quote.png');
 	
@@ -28,7 +28,7 @@
 	$a_size = round($a_size * (1 - (($a_bb[2] - 290) / $a_bb[2]))); //shrink bbox to fit
 	$a_size = ($a_size > 35) ? 35 : $a_size; //limiting the size of author text
 	$a_bb = imagettfbbox($a_size, 0, $mr, $author);
-	imagefttext($canvas, $a_size, 0, 650 - ($a_bb[2]), 150 - ($a_bb[3]), $white, $mr, $author); //650 and 150 are padding top and left
+	imagefttext($canvas, $a_size, 0, 650 - ($a_bb[2]), 150 - ($a_bb[3]), $black, $mr, $author); //650 and 150 are padding top and left
 
 //add quote
 	$quote = $data[0];
@@ -60,7 +60,7 @@
 	$x=((720 - $max_x) / 2);
 	//write quote
 	foreach ($lines as $line) {
-		imagefttext($canvas, $q_size, 0, $x, $y, $white, $mr, $line);
+		imagefttext($canvas, $q_size, 0, $x, $y, $black, $mr, $line);
 		$y += 1.3 * $q_size;
 	}
 
